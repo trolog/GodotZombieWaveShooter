@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/parent_objects/entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://sprites/aim_line.png" type="Texture" id=3]
+[ext_resource path="res://audio/Pistol-4Shot1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sprites/flash.png" type="Texture" id=5]
+[ext_resource path="res://audio/hurt_player.wav" type="AudioStream" id=6]
+
+[node name="player" groups=[
+"player",
+] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+animation = "player_idle"
+frame = 0
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+enabled = true
+cast_to = Vector2( 2000, 0 )
+collide_with_areas = true
+
+[node name="Sprite" type="Sprite" parent="." index="4"]
+position = Vector2( 51, 0 )
+texture = ExtResource( 3 )
+offset = Vector2( 150, 0 )
+
+[node name="gunshot_sound" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 4 )
+volume_db = -36.207
+
+[node name="hurt_player" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource( 6 )
+
+[node name="flash" type="Sprite" parent="." index="7"]
+visible = false
+position = Vector2( 55.8279, 0.254028 )
+texture = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="flash" index="0"]
+one_shot = true
+[connection signal="timeout" from="flash/Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zombie4.wav-f835e28aa8051978b4e7e32bbb9c106b.sample"
+
+[deps]
+
+source_file="res://audio/zombie_sounds/zombie4.wav"
+dest_files=[ "res://.import/zombie4.wav-f835e28aa8051978b4e7e32bbb9c106b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
